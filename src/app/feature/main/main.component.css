@@ -1,0 +1,26 @@
+.popUpBack {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.69);
+  top: 200px;
+  left: calc(50% - 200px);
+  width: 400px;
+  height: 200px;
+  border-radius: 15px;
+  padding: 0 10px;
+}
+
+.popUp {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  color: white;
+  position: absolute;
+  top: 75px;
+  width: 400px;
+  left: calc(50% - 200px);
+}
+
+.popBtn {
+  width: 150px;
+}

@@ -1,0 +1,12 @@
+  <div class="popup-link">
+    <img src="{{product.image}}" class="card-img-top" alt="...">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{product.title}}</h5>
+    <h5 class="card-title">{{product.price}}</h5>
+    <p class="card-text" *ngIf="show"> {{product.description}} </p>
+    <div class="buttons">
+      <a *ngIf="!show" [routerLink]="['/catalog', product.id]" class="btn btn-primary hvr-radial-in">Подробнее</a>
+      <a *ngIf="show" routerLink="/order" [queryParams]="{name: product.title}" class="btn btn-primary hvr-radial-in">В корзину</a>
+    </div>
+  </div>

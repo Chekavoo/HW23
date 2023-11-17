@@ -1,0 +1,120 @@
+<div class="main__form">
+  <div class="container">
+
+    <h3>Сделать заказ</h3>
+    <form class="hidden" [formGroup]="orderForm">
+      <div class="row g-5">
+        <div class="col-md ggg">
+          <div class="form-floating">
+            Товар
+            <input type="text" class="form-control inp" formControlName="item">
+          </div>
+        </div>
+      </div>
+      <div class="row g-5">
+        <div class="col-md ggg">
+          <div class="form-floating">
+            Имя
+            <input type="text" class="form-control inp" formControlName="name">
+            <div *ngIf="name?.invalid">
+              <div class="text-danger" *ngIf="(name?.touched || name?.dirty) && name?.errors?.['required']">
+                Заполните поле
+              </div>
+              <div class="text-danger" *ngIf="name?.errors?.['pattern']">
+                Только русский буквы
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md ggg">
+          <div class="form-floating">
+            Фамилия
+            <input type="text" class="form-control inp" formControlName="lastName">
+            <div *ngIf="lastName?.invalid">
+              <div class="text-danger" *ngIf="(lastName?.touched || lastName?.dirty) && lastName?.errors?.['required']">
+                Заполните поле
+              </div>
+              <div class="text-danger" *ngIf="lastName?.errors?.['pattern']">
+                Только русский буквы
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md ggg">
+          <div class="form-floating">
+            Телефон
+            <input type="text" class="form-control inp" formControlName="phone">
+            <div *ngIf="phone?.invalid">
+              <div class="text-danger" *ngIf="(phone?.touched || phone?.dirty) && phone?.errors?.['required']">
+                Заполните поле
+              </div>
+              <div class="text-danger" *ngIf="phone?.errors?.['pattern']">
+                Может содержать только '+' и 11 цифр
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row g-5">
+        <div class="col-md ggg">
+          <div class="form-floating">
+            Страна
+            <input type="text" class="form-control inp" formControlName="country">
+            <div class="text-danger"
+                 *ngIf="(country?.touched || country?.dirty) && country?.errors?.['required']">
+              Заполните поле
+            </div>
+          </div>
+        </div>
+        <div class="col-md ggg">
+          <div class="form-floating">
+            Индекс
+            <input type="text" class="form-control inp" formControlName="index">
+            <div class="text-danger" *ngIf="(index?.touched || index?.dirty) && index?.errors?.['required']">
+              Заполните поле
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row g-5">
+        <div class="col-md ggg">
+          <div class="form-floating">
+            Адрес
+            <input type="text" class="form-control inp" formControlName="address">
+            <div *ngIf="address?.invalid">
+              <div class="text-danger" *ngIf="(address?.touched || address?.dirty) && address?.errors?.['required']">
+                Заполните поле
+              </div>
+              <div class="text-danger" *ngIf="address?.errors?.['pattern']">
+                Только буквы, цифры, пробелы, дефис и слеш
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row g-5">
+        <div class="col-md ggg">
+          <div class="col-md ggg">
+            <div class="form-floating">
+              Комментарий
+              <input type="text" class="form-control inp" formControlName="comment">
+              <!--            <div *ngIf="phone?.invalid">-->
+              <!--              <div class="text-danger" *ngIf="(phone?.touched || phone?.dirty) && phone?.errors?.['required']">-->
+              <!--                Заполните поле-->
+              <!--              </div>-->
+              <!--              <div class="text-danger" *ngIf="phone?.errors?.['pattern']">-->
+              <!--                Может содержать только '+' и 11 цифр-->
+              <!--              </div>-->
+              <!--            </div>-->
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn-form btn btn-primary hvr-radial-in" [disabled]="orderForm.invalid" (click)="makeAnOrder()">Отправить</button>
+      <div class="text-danger" *ngIf="showBtn">Ошибка</div>
+    </form>
+    <div class="popup">
+      Спасибо за заказ. Мы свяжемся с вами в ближайшее время!
+    </div>
+  </div>
+</div>

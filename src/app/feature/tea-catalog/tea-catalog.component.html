@@ -1,0 +1,11 @@
+<div class="products">
+  <div class="container">
+
+    <div class="title">
+      <h2>Наши чайные коллекции</h2>
+    </div>
+    <div class="row justify-content-around gg">
+      <tea-card  class="card col-sm-4 g-4" style="width: 416px;" *ngFor="let product of products" [product]="product" [show]="show"></tea-card>
+    </div>
+  </div>
+</div>
